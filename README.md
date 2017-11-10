@@ -1,2 +1,2 @@
 # hackerrank
-My Solutions for hacker rank
+Solutions for hacker rank on C#
