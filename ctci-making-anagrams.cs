@@ -8,31 +8,33 @@ class Solution {
         string a = Console.ReadLine();
         string b = Console.ReadLine();
         
-        Dictionary<string, int> dictionary = new Dictionary<string, int>();
+        Dictionary<char, int> dictionary = new Dictionary<char, int>();
         
         //Iterate over first array
         for(int i = 0; i < a.Length; i++)
         {
-            if (dictionary.ContainsKey(a[i].ToString())) {
-                dictionary[a[i].ToString()] = dictionary[a[i].ToString()] +1;
+            if (dictionary.ContainsKey(a[i])) {
+                dictionary[a[i]] = dictionary[a[i]] + 1;
             }
             else {
-                dictionary.Add(a[i].ToString(),1);
+                dictionary.Add(a[i],1);
             }
         }
         
         //Iterate over the second to remove letters
+        //and is is not present count
+        int counter = 0;
         for(int i = 0; i < b.Length; i++)
         {
-            if (dictionary.ContainsKey(b[i].ToString())) {
-                dictionary[b[i].ToString()] = dictionary[b[i].ToString()] - 1;
+            if (dictionary.ContainsKey(b[i])) {
+                dictionary[b[i]] = dictionary[b[i]] - 1;
             }
             else {
-                dictionary.Add(b[i].ToString(),1);
+                counter += 1;
             }
         }
         
-        Console.WriteLine(dictionary.Sum(x => Math.Abs(x.Value)));
+        Console.WriteLine(dictionary.Sum(x => Math.Abs(x.Value))+counter);
         
         
     }
