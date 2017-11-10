@@ -1,0 +1,16 @@
+//https://www.hackerrank.com/challenges/mini-max-sum/problem
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+class Solution {
+
+    static void Main(String[] args) {
+        string[] arr_temp = Console.ReadLine().Split(' ');
+        long[] arr = Array.ConvertAll(arr_temp,long.Parse);
+        Array.Sort(arr);
+        Console.Write(arr.Skip(0).Take(4).Sum() + " ");
+        Console.Write(arr.Skip(arr.Length-4).Take(4).Sum() + " ");
+    }
+}
